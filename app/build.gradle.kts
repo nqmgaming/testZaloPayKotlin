@@ -74,13 +74,13 @@ dependencies {
 
     implementation(files("libs/zpdk-release-v3.1.aar"))
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
+    implementation(libs.kotlin.stdlib)
 
-    implementation("com.squareup.okhttp3:okhttp:4.6.0")
-    implementation("commons-codec:commons-codec:1.14")
-    implementation ("androidx.compose.runtime:runtime-livedata:1.6.7")
-    implementation ("io.coil-kt:coil-compose:2.6.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation(libs.okhttp)
+    implementation(libs.commons.codec)
+    implementation (libs.androidx.runtime.livedata)
+    implementation (libs.coil.compose)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
 
 }
