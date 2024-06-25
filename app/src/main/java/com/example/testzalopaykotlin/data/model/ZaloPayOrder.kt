@@ -10,8 +10,8 @@ data class ZaloPayOrder(
     var appTime: String = Date().time.toString(),
     var amount: String,
     var appTransId: String = Helpers.getAppTransId(),
-    var embedData: String = "{}",
-    var items: String = "[]",
+    var embedData: String = "{\"promotioninfo\":\"\",\"merchantinfo\":\"embeddata123\"}",
+    var items: String = "[{\"itemid\":\"knb\",\"itemname\":\"kim nguyen bao\",\"itemprice\":198400,\"itemquantity\":1}]",
     var bankCode: String = "zalopayapp",
     var description: String = "Merchant pay for order #${Helpers.getAppTransId()}",
     var mac: String = Helpers.getMac(
