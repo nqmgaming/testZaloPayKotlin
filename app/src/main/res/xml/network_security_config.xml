@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Bật cho phép kết nối không an toàn (không khuyến khích) -->
+    <base-config cleartextTrafficPermitted="true">
+        <!-- Thêm các quy tắc cụ thể nếu cần -->
+    </base-config>
+</network-security-config>
