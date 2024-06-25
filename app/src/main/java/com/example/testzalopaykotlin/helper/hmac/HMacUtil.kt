@@ -1,4 +1,4 @@
-package com.example.testzalopaykotlin.Helper.HMac
+package com.example.testzalopaykotlin.helper.hmac
 
 import java.io.UnsupportedEncodingException
 import java.nio.charset.StandardCharsets
