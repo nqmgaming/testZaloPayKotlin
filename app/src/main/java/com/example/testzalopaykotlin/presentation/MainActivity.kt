@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.example.testzalopaykotlin.data.api.CreateOrder
@@ -57,7 +58,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ZaloPayIntegrationScreen() {
-        var paymentResult by remember { mutableStateOf("") }
+        var paymentResult by remember { mutableStateOf("Đang đợi thanh toán") }
 
         var totalString by remember { mutableStateOf("") }
 
@@ -75,6 +76,30 @@ class MainActivity : ComponentActivity() {
             Button(
                 onClick = {
                     Log.d("ZaloPay", "Button clicked")
+
+                    if (totalString.isEmpty()) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Vui lòng nhập số tiền",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@Button
+                    } else if (totalString.toDoubleOrNull() == null) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Vui lòng nhập số tiền hợp lệ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@Button
+                    } else if (totalString.toDouble() <= 0) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Vui lòng nhập số tiền lớn hơn 0",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@Button
+                    }
+
                     val orderApi = CreateOrder()
 
                     lifecycleScope.launch {
@@ -93,25 +118,50 @@ class MainActivity : ComponentActivity() {
                                     token,
                                     "demozpdk://app",
                                     object : PayOrderListener {
-                                        override fun onPaymentSucceeded(payUrl: String?, transToken: String?, appTransID: String?) {
+                                        override fun onPaymentSucceeded(
+                                            payUrl: String?,
+                                            transToken: String?,
+                                            appTransID: String?
+                                        ) {
                                             paymentResult = "Thanh toán thành công"
-                                            Log.d("ZaloPay", "Payment succeeded: payUrl=$payUrl, transToken=$transToken, appTransID=$appTransID")
+                                            Log.d(
+                                                "ZaloPay",
+                                                "Payment succeeded: payUrl=$payUrl, transToken=$transToken, appTransID=$appTransID"
+                                            )
                                         }
 
-                                        override fun onPaymentCanceled(payUrl: String?, transToken: String?) {
+                                        override fun onPaymentCanceled(
+                                            payUrl: String?,
+                                            transToken: String?
+                                        ) {
                                             paymentResult = "Hủy thanh toán"
-                                            Log.d("ZaloPay", "Payment canceled: payUrl=$payUrl, transToken=$transToken")
+                                            Log.d(
+                                                "ZaloPay",
+                                                "Payment canceled: payUrl=$payUrl, transToken=$transToken"
+                                            )
                                         }
 
-                                        override fun onPaymentError(error: ZaloPayError?, payUrl: String?, transToken: String?) {
+                                        override fun onPaymentError(
+                                            error: ZaloPayError?,
+                                            payUrl: String?,
+                                            transToken: String?
+                                        ) {
                                             paymentResult = "Lỗi thanh toán"
-                                            Log.e("ZaloPayError", "Payment error: payUrl=$payUrl, transToken=$transToken")
+                                            Log.e(
+                                                "ZaloPayError",
+                                                "Payment error: payUrl=$payUrl, transToken=$transToken"
+                                            )
                                         }
                                     })
 
-                                paymentResult = "Đã tạo đơn hàng thành công và đang đợi đơn hàng được thanh toán"
-                            }else{
-                               Toast.makeText(this@MainActivity, "Failed to create order", Toast.LENGTH_SHORT).show()
+                                paymentResult =
+                                    "Đã tạo đơn hàng thành công và đang đợi đơn hàng được thanh toán"
+                            } else {
+                                Toast.makeText(
+                                    this@MainActivity,
+                                    "Failed to create order",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
 
                         } catch (e: Exception) {
@@ -127,7 +177,11 @@ class MainActivity : ComponentActivity() {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text(text = paymentResult)
+            Text(
+                text = paymentResult,
+                modifier = Modifier.padding(16.dp),
+                textAlign = TextAlign.Center
+            )
         }
     }
 
