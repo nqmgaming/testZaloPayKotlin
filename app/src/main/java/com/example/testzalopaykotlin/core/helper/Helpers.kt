@@ -1,7 +1,7 @@
-package com.example.testzalopaykotlin.helper
+package com.example.testzalopaykotlin.core.helper
 
 import android.annotation.SuppressLint
-import com.example.testzalopaykotlin.helper.hmac.HMacUtil
+import com.example.testzalopaykotlin.core.helper.hmac.HMacUtil
 import java.security.InvalidKeyException
 import java.security.NoSuchAlgorithmException
 import java.text.SimpleDateFormat

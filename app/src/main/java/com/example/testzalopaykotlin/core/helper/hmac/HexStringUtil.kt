@@ -1,4 +1,4 @@
-package com.example.testzalopaykotlin.helper.hmac
+package com.example.testzalopaykotlin.core.helper.hmac
 
 object HexStringUtil {
     private val HEX_CHAR_TABLE = charArrayOf(

@@ -1,7 +1,7 @@
-package com.example.testzalopaykotlin.api
+package com.example.testzalopaykotlin.data.api
 
-import com.example.testzalopaykotlin.constant.AppInfo
-import com.example.testzalopaykotlin.model.ZaloPayOrder
+import com.example.testzalopaykotlin.core.constant.AppInfo
+import com.example.testzalopaykotlin.data.model.ZaloPayOrder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.FormBody

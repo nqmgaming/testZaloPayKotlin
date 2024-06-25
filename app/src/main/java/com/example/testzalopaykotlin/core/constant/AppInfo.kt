@@ -1,4 +1,4 @@
-package com.example.testzalopaykotlin.constant
+package com.example.testzalopaykotlin.core.constant
 
 object AppInfo {
     const val APP_ID = 2553

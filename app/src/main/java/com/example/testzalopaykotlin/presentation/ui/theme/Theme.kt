@@ -1,4 +1,4 @@
-package com.example.testzalopaykotlin.ui.theme
+package com.example.testzalopaykotlin.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,7 +1,7 @@
-package com.example.testzalopaykotlin.model
+package com.example.testzalopaykotlin.data.model
 
-import com.example.testzalopaykotlin.constant.AppInfo
-import com.example.testzalopaykotlin.helper.Helpers
+import com.example.testzalopaykotlin.core.constant.AppInfo
+import com.example.testzalopaykotlin.core.helper.Helpers
 import java.util.Date
 
 data class ZaloPayOrder(

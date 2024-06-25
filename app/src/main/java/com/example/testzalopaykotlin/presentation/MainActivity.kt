@@ -1,4 +1,4 @@
-package com.example.testzalopaykotlin
+package com.example.testzalopaykotlin.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -26,8 +26,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
-import com.example.testzalopaykotlin.api.CreateOrder
-import com.example.testzalopaykotlin.constant.AppInfo.APP_ID
+import com.example.testzalopaykotlin.data.api.CreateOrder
+import com.example.testzalopaykotlin.core.constant.AppInfo.APP_ID
 import kotlinx.coroutines.launch
 import vn.zalopay.sdk.Environment
 import vn.zalopay.sdk.ZaloPayError
