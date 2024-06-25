@@ -27,7 +27,7 @@ class CreateOrder {
                 .add("mac", input.mac)
                 .build()
 
-            HttpProvider.sendPost(AppInfo.URL_CREATE_ORDER, formBody)
+            HttpProvider.sendPost(url = AppInfo.URL_CREATE_ORDER, formBody =  formBody)
         } ?: throw Exception("Failed to create order")
     }
 }

@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec
 object HMacUtil {
     const val HMACSHA256 = "HmacSHA256"
 
-    private fun HMacEncode(algorithm: String, key: String, data: String): ByteArray? {
+    private fun hmacEncode(algorithm: String, key: String, data: String): ByteArray? {
         var macGenerator: Mac? = null
         try {
             macGenerator = Mac.getInstance(algorithm)
@@ -32,8 +32,8 @@ object HMacUtil {
         return macGenerator.doFinal(dataByte)
     }
 
-    fun HMacHexStringEncode(algorithm: String, key: String, data: String): String? {
-        val hmacEncodeBytes = HMacEncode(algorithm, key, data)
+    fun hmacHexStringEncode(algorithm: String, key: String, data: String): String? {
+        val hmacEncodeBytes = hmacEncode(algorithm, key, data)
         return hmacEncodeBytes?.let { HexStringUtil.byteArrayToHexString(it) }
     }
 }

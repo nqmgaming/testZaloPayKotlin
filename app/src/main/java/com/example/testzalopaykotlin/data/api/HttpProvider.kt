@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object HttpProvider {
 
-    suspend fun sendPost(URL: String, formBody: RequestBody): JSONObject? {
+    suspend fun sendPost(url: String, formBody: RequestBody): JSONObject? {
         var data: JSONObject? = null
         try {
             val spec = ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
@@ -29,7 +29,7 @@ object HttpProvider {
                 .build()
 
             val request = Request.Builder()
-                .url(URL)
+                .url(url)
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
                 .post(formBody)
                 .build()

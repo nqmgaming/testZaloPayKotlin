@@ -26,6 +26,6 @@ object Helpers {
     @Throws(NoSuchAlgorithmException::class, InvalidKeyException::class)
     @JvmStatic
     fun getMac(key: String, data: String): String {
-        return HMacUtil.HMacHexStringEncode(HMacUtil.HMACSHA256, key, data)!!
+        return HMacUtil.hmacHexStringEncode(HMacUtil.HMACSHA256, key, data)!!
     }
 }
