@@ -5,17 +5,17 @@ import com.example.testzalopaykotlin.core.helper.Helpers
 import java.util.Date
 
 data class ZaloPayOrder(
-    var AppId: String = AppInfo.APP_ID.toString(),
-    var AppUser: String = "Android_Demo",
-    var AppTime: String = Date().time.toString(),
-    var Amount: String,
-    var AppTransId: String = Helpers.getAppTransId(),
-    var EmbedData: String = "{}",
-    var Items: String = "[]",
-    var BankCode: String = "zalopayapp",
-    var Description: String = "Merchant pay for order #${Helpers.getAppTransId()}",
-    var Mac: String = Helpers.getMac(
+    var appId: String = AppInfo.APP_ID.toString(),
+    var appUser: String = "Android_Demo",
+    var appTime: String = Date().time.toString(),
+    var amount: String,
+    var appTransId: String = Helpers.getAppTransId(),
+    var embedData: String = "{}",
+    var items: String = "[]",
+    var bankCode: String = "zalopayapp",
+    var description: String = "Merchant pay for order #${Helpers.getAppTransId()}",
+    var mac: String = Helpers.getMac(
         AppInfo.MAC_KEY,
-        data = "$AppId|$AppTransId|$AppUser|$Amount|$AppTime|$EmbedData|$Items"
+        data = "$appId|$appTransId|$appUser|$amount|$appTime|$embedData|$items"
     )
 )
